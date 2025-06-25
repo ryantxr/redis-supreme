@@ -6,19 +6,19 @@ PIP       := $(VENV_DIR)/bin/pip
 ALEMBIC   := $(VENV_DIR)/bin/alembic
 
 # Run your test suite
-test: install
+test: 
 	$(PYTHON) -m pytest
 
 # Generate a new migration script
 # Usage: make revision MESSAGE="describe changes"
-revision: install
+revision: 
 ifndef MESSAGE
 	$(error MESSAGE is undefined.  Usage: make revision MESSAGE="describe changes")
 endif
 	$(ALEMBIC) revision --autogenerate -m "$(MESSAGE)"
 
 # Apply all pending migrations
-migrate: install
+migrate: 
 	$(ALEMBIC) upgrade head
 
 # Create a virtualenv
