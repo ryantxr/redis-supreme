@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { API_BASE_URL } from '../lib/api'
 
 export default function Register() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    await fetch('http://localhost:8000/register', {
+    await fetch(`${API_BASE_URL}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
