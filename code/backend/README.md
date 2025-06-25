@@ -10,7 +10,8 @@ A FastAPI backend providing registration and login endpoints.
    pip install -r requirements.txt
    ```
 
-2. Configure the database by setting the `DATABASE_URL` environment variable. By default, it uses SQLite `test.db`.
+2. Configure the database by creating a `.env` file or setting the `DATABASE_URL` environment variable.
+   The provided `.env` file defaults to SQLite `./database/test.db`.
 3. Start the server:
 
    ```bash
