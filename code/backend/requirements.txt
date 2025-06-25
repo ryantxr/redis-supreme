@@ -6,3 +6,5 @@ mysqlclient
 pydantic
 python-dotenv
 alembic
+pytest
+httpx

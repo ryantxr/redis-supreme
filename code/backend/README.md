@@ -18,6 +18,23 @@ A FastAPI backend providing registration and login endpoints.
    uvicorn app:app --reload
    ```
 
+## Migrations
+
+Alembic manages database schema migrations. The configuration lives in
+`alembic.ini` and migration scripts reside under `database/migrations`.
+
+Create a new migration after modifying models:
+
+```bash
+alembic revision --autogenerate -m "describe changes"
+```
+
+Apply migrations to the database:
+
+```bash
+alembic upgrade head
+```
+
 ## Database
 
 ### SQLite
