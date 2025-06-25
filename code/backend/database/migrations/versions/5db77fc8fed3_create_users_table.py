@@ -9,7 +9,10 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
-from sqlalchemy.dialects.mysql import TIMESTAMP as MySQLTimestamp
+
+from database.migrations.types import created_at_type
+
+
 
 # revision identifiers, used by Alembic.
 revision: str = '5db77fc8fed3'
@@ -30,6 +33,7 @@ def upgrade() -> None:
     sa.Column('username', sa.String(length=50), nullable=False),
     sa.Column('hashed_password', sa.String(length=128), nullable=False),
     sa.Column('created_at', created_at_type, nullable=True),
+
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_users_id'), 'users', ['id'], unique=False)
