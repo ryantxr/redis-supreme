@@ -40,3 +40,7 @@ alembic upgrade head
 ### SQLite
 
 Store the database in code/backend/database
+
+### Migrations
+
+How do I run migrations?
