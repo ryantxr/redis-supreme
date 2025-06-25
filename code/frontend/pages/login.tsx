@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
+  const router = useRouter()
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const res = await fetch('http://localhost:8000/login', {
@@ -13,6 +15,7 @@ export default function Login() {
     })
     const data = await res.json()
     setMessage(data.message)
+    router.push('/dashboard')
   }
   return (
     <form onSubmit={handleSubmit}>
