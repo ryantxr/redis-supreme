@@ -10,7 +10,7 @@ A FastAPI backend providing registration and login endpoints.
    pip install -r requirements.txt
    ```
 
-2. Configure the database by creating a `.env` file or setting the `DATABASE_URL` environment variable.
+2. Configure the database by creating a `.env` file **in this directory** or setting the `DATABASE_URL` environment variable.
    The provided `.env` file defaults to SQLite `./database/test.db`.
 3. Start the server:
 
@@ -27,7 +27,7 @@ Store the database in code/backend/database
 ### Migrations
 
 Alembic manages database schema migrations. The configuration lives in
-`alembic.ini` and migration scripts reside under `database/migrations`.
+`alembic.ini` (located in this directory) and migration scripts reside under `database/migrations`.
 
 Create a new migration after modifying models:
 
