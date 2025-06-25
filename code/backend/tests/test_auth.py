@@ -4,8 +4,8 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-# Use a separate SQLite file for tests
-os.environ["DATABASE_URL"] = "sqlite:///./test_temp.db"
+# Use a separate SQLite file for tests inside the database directory
+os.environ["DATABASE_URL"] = "sqlite:///./code/backend/database/test_temp.db"
 
 # Ensure the backend package is on the Python path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
@@ -20,6 +20,8 @@ def setup_db():
     Base.metadata.create_all(bind=engine)
     yield
     Base.metadata.drop_all(bind=engine)
+    # Remove the temporary database file
+    Path("code/backend/database/test_temp.db").unlink(missing_ok=True)
 
 # Override the dependency to use the same testing session
 def override_get_db():
